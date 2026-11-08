@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ahmed Design: Desarrollador web profesional al antojo del cliente.">
+    <title>Ahmed Design | Taller iCars Larache</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span>
+                    <a href="tel:+212614738881" style="color: inherit; text-decoration: none;">
+                        <i class="fas fa-phone"></i> 00212614738881
+                    </a>
+                </span>
+
+                <span>
+                    <a href="mailto:mchebcheb2019@gmail.com" style="color: inherit; text-decoration: none;">
+                        <i class="fas fa-envelope"></i> mchebcheb2019@gmail.com
+                    </a>
+                </span>
+            </div>
+            <div class="top-links">
+                <a href="#reserva-cita">Cita Previa</a>
+
+                <a href="javascript:void(0)" onclick="alert('Tu carrito está vacío. ¡Visita nuestra tienda!')">
+                    <i class="fas fa-shopping-cart"></i> 0 elementos
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="menu-btn" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="logo-centered">
+                <img src="logo-icars.png" alt="iCars Logo">
+            </div>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" class="active">Talleres</a></li>
+
+                    <li class="has-submenu">
+                        <a href="servicios.html">Servicios <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu" id="submenu-servicios">
+                            <li><a href="servicios.html#neumaticos">Neumáticos</a></li>
+                            <li><a href="servicios.html#cambio-aceite">Cambio de Aceite</a></li>
+                            <li><a href="servicios.html#amortiguadores">Amortiguadores</a></li>
+                            <li><a href="servicios.html#baterias">Baterías</a></li>
+                            <li><a href="servicios.html#revisiones">Revisiones</a></li>
+                            <li><a href="servicios.html#mantenimiento">Mantenimiento</a></li>
+                            <li><a href="servicios.html#enganches">Enganches</a></li>
+                            <li><a href="servicios.html#diagnosis-electronica">Diagnosis Electrónica</a></li>
+                            <li><a href="servicios.html#correa-distribucion">Correa Distribución</a></li>
+                            <li><a href="servicios.html#cambio-liquido-frenos">Cambio Líquido Frenos</a></li>
+                            <li><a href="servicios.html#cambio-anticongelante">Cambio Anticongelante</a></li>
+                            <li><a href="servicios.html#alineado-direccion">Alineado Dirección</a></li>
+                            <li><a href="servicios.html#mecanica-general">Mecánica General</a></li>
+                            <li><a href="servicios.html#pulido-faros">Pulido de Faros</a></li>
+                            <li><a href="servicios.html#aire-acondicionado">Aire Acondicionado</a></li>
+                            <li><a href="servicios.html#remolques">Remolques</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="tienda.html">Tienda Online</a></li>
+                    <li><a href="blog.html">Blog Larache</a></li>
+                    <li><a href="Trabaja.html">Trabaja con nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TALLER LARACHE</h1>
+            <p>Pide tu cita previa en nuestro taller de Larache</p>
+        </div>
+    </section>
+
+    <section id="reserva-cita" class="cita-previa-section"
+        style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 40px 10px; background-color: #f4f4f4;">
+
+        <div class="bloque-fotos-izq">
+            <img src="foto1.jpg" alt="Taller Izquierda 1">
+            <img src="foto2.jpg" alt="Taller Izquierda 2">
+            <img src="foto3.jpg" alt="Taller Izquierda 3">
+        </div>
+
+        <div class="cita-previa-content" style="max-width: 800px; flex: 1;">
+            <h2>SOLICITA TU CITA PREVIA CON 48H (laborables) DE ANTELACIÓN</h2>
+
+            <form action="https://formspree.io/f/xnjlzeap" method="POST" class="cita-form">
+
+                <div class="form-flex-top">
+                    <div class="col-calendario">
+                        <label>Selecciona la fecha:</label>
+                        <input type="date" name="fecha" required>
+                    </div>
+                    <div class="col-texto">
+                        <p>En <strong>taller Larache</strong> gestionamos tu cita con antelación para garantizar que
+                            el
+                            recambio y el elevador estén listos para tu vehículo. Recibirás respuesta en menos de 24h.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Tu Nombre Completo" required>
+                    <input type="text" name="matricula" placeholder="Matrícula del Vehículo" required>
+                </div>
+
+                <div class="form-group">
+                    <select name="servicio" required>
+                        <option value="" disabled selected>Selecciona el Servicio</option>
+                        <option value="revision">Revisión General</option>
+                        <option value="aceite">Cambio de Aceite</option>
+                        <option value="frenos">Frenos</option>
+                        <option value="otros">Otros Servicios</option>
+                    </select>
+                </div>
+
+                <textarea name="mensaje" placeholder="Cuéntanos brevemente qué le pasa al coche..." rows="4"></textarea>
+
+                <button type="submit" class="btn-enviar">RESERVAR CITA AHORA</button>
+            </form>
+        </div>
+
+        <div class="bloque-fotos-der">
+            <img src="foto4.jpg" alt="Taller Derecha 1">
+            <img src="foto5.jpg" alt="Taller Derecha 2">
+            <img src="foto6.jpg" alt="Taller Derecha 3">
+        </div>
+
+    </section>
+
+    <section class="seccion-info-galeria-estirada">
+        <div class="contenedor-info-galeria-estirada">
+
+            <div class="bloque-texto-izq-estirado">
+                <h3>Talleres Mecánicos de Confianza en Larache</h3>
+                <p>
+                    ¿Está buscando talleres de confianza? Si lo que necesita es un taller de coches con profesionales
+                    del sector, en <strong>Larache</strong> contamos con mecánicos con años de experiencia y una
+                    completa
+                    formación.
+                </p>
+                <p>
+                    Ofrecemos un servicio integral para su vehículo: desde diagnosis avanzada, revisiones oficiales sin
+                    perder la garantía, mantenimiento de frenos, hasta el cambio de neumáticos y aceite. Trabajamos con
+                    los mejores recambios del mercado para garantizar la máxima seguridad en carretera. Tu coche,
+                    siempre en las mejores manos.
+                </p>
+            </div>
+
+            <div class="bloque-galeria-der-estirado">
+                <div class="imagen-grande-slider-estirada">
+
+                    <button class="carrusel-btn-estirado prev" id="btn-prev-estirado">&#10094;</button>
+                    <button class="carrusel-btn-estirado next" id="btn-next-estirado">&#10095;</button>
+
+                    <div class="carrusel-slides-estirado" id="carrusel-slides-estirado">
+                        <img src="foto-grande.jpg" alt="Instalaciones iCars" class="slide-estirado">
+                        <img src="foto-mini1.jpg" alt="Servicio 1" class="slide-estirado">
+                        <img src="foto-mini2.jpg" alt="Servicio 2" class="slide-estirado">
+                        <img src="foto-mini3.jpg" alt="Servicio 3" class="slide-estirado">
+                        <img src="foto-mini4.jpg" alt="Servicio 4" class="slide-estirado">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <main class="main-contacto">
+        <div class="container">
+            <div class="contacto-header">
+                <h1>Contacta con Taller Larache</h1>
+                <p>¿Tienes dudas o necesitas ayuda personalizada? Envíanos un mensaje y te responderemos lo antes
+                    posible.</p>
+            </div>
+
+            <div class="contacto-card">
+                <h3>Envíanos un mensaje</h3>
+
+                <form action="https://formspree.io/f/xnjlzeap" method="POST" class="contacto-form">
+                    <div class="form-group">
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="form-row-double">
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Correo Electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="telefono" placeholder="Teléfono de contacto" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="asunto" placeholder="Asunto del mensaje" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar-contacto">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <section id="seccion-mapa" class="mapa-full">
+        <div class="mapa-wrapper">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26168.328325983796!2d-5.926524333649646!3d35.002880789723046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0bc3021f1e0001%3A0x6b866c1b4b0e5c9b!2sKsar%20el-Kebir%2C%20Marruecos!5e0!3m2!1ses!2ses!4v1680000000000!5m2!1ses!2ses"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Navegación —</h3>
+                <ul>
+                    <li><a href="index.html"><i class='bx bx-chevron-right'></i> Inicio</a></li>
+                    <li><a href="servicios.html"><i class='bx bx-chevron-right'></i> Servicios</a></li>
+                    <li><a href="#reserva-cita"><i class='bx bx-chevron-right'></i> Reservar Cita</a></li>
+                    <li><a href="tienda.html"><i class='bx bx-chevron-right'></i> Tienda Online</a></li>
+                    <li><a href="Contacto.html"><i class='bx bx-chevron-right'></i> Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto —</h3>
+                <p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ksar+el-Kebir" target="_blank"
+                        class="contacto-link">
+                        <i class='bx bxs-map'></i> Calle Principal, Ksar el-Kebir
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:+212614738881" class="contacto-link">
+                        <i class='bx bxs-phone'></i> +212 614 73 88 81
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:mchebcheb2019@gmail.com" class="contacto-link">
+                        <i class='bx bxs-envelope'></i> mchebcheb2019@gmail.com
+                    </a>
+                </p>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Ahmed.Chahmout.1088893" target="_blank"><i
+                            class='bx bxl-facebook-circle'></i></a>
+                    <a href="https://www.instagram.com/mchebcheb2019/" target="_blank"><i
+                            class='bx bxl-instagram'></i></a>
+                    <a href="https://wa.me/212614738881?text=Hola%20Ahmed" target="_blank"><i
+                            class='bx bxl-whatsapp'></i></a>
+                    <a href="https://www.linkedin.com/in/ahmed-chahmout-1a87723b5" target="_blank"><i
+                            class='bx bxl-linkedin-square'></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Horario —</h3>
+                <div class="opening-hours">
+                    <p><strong>Lunes - Viernes:</strong></p>
+                    <span>09:00 - 19:00</span>
+                    <p><strong>Sábados:</strong></p>
+                    <span>10:00 - 14:00</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Boletín —</h3>
+                <p>Mantén tu coche a punto. Suscríbete para recibir ofertas exclusivas, consejos de mantenimiento y
+                    descuentos en tu próxima revisión.</p>
+                <form action="https://formspree.io/f/xnjlzeap" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Tu correo" required>
+                    <button type="submit">UNIRSE</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Ahmed Design. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="privacidad.html">Privacidad</a>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/212614738881" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1609 @@
+/* 1. VARIABLES */
+:root {
+    --primary-color: #e91e63;
+    --secondary-color: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+    --container-width: 1200px;
+}
+
+/* 2. RESET */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.4;
+    color: var(--secondary-color);
+    background-color: var(--white);
+}
+
+/* 3. TOP BAR */
+.top-bar {
+    background-color: var(--white);
+    border-bottom: 1px solid #eeeeee;
+    padding: 8px 0;
+    font-size: 12px;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info span {
+    margin-right: 20px;
+    font-weight: 700;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+/* 4. HEADER COMPACTO (LOGO CENTRADO) */
+.main-header {
+    background-color: var(--white);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-header .container {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.logo img {
+    height: 55px;
+    /* Altura reducida para ganar espacio */
+    margin: 0 auto;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    /* <--- ESTO QUITA LOS PUNTITOS */
+}
+
+.navbar ul li a {
+    color: var(--secondary-color);
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    /* <--- ESTO QUITA LAS RALLITAS */
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: var(--primary-color);
+    border: none;
+}
+
+/* 5. HERO REDUCIDO (MENOS DE LA MITAD) */
+.hero {
+    height: 60vh;
+    /* Ocupa solo el 40% de la pantalla */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+        url('tu-imagen-taller.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    /* Título más pequeño y ajustado */
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* 6. SECCIÓN CITA PREVIA (LA QUE SUBE) */
+.cita-previa-section {
+    background: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.cita-previa-content h2 {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    max-width: 800px;
+    /* 20px arriba, auto a los lados, 20px abajo (para que no se pegue al form) */
+    margin: 20px auto 20px;
+    color: #000;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+/* Escritorio: Escondemos el botón */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--secondary-color);
+}
+
+.cita-form {
+    max-width: 700px;
+    margin: 40px auto 0;
+    background: #fdfdfd;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.cita-form input,
+.cita-form select,
+.cita-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    outline: none;
+}
+
+.cita-form input:focus,
+.cita-form select:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-enviar {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: var(--transition);
+}
+
+.btn-enviar:hover {
+    background-color: #c2185b;
+    /* Un fucsia un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.form-flex-top {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    align-items: center;
+    /* Alinea verticalmente el calendario con el texto */
+    text-align: left;
+}
+
+.col-calendario {
+    flex: 1;
+}
+
+.col-calendario label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+}
+
+.col-texto {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+/* Contenedor principal de la sección */
+.cita-previa-section {
+    padding: 0;
+    /* Quitamos el padding para que las fotos lleguen al borde si quieres */
+    background-color: #fff;
+}
+
+.cita-wrapper {
+    display: flex;
+    align-items: stretch;
+    /* Hace que las fotos tengan la misma altura que el formulario */
+    width: 100%;
+}
+
+/* ==========================================================================
+   CORRECCIÓN DEFINITIVA SECCIÓN FOTOS Y FORMULARIO (SIN SOLAPAMIENTOS)
+   ========================================================================== */
+
+/* Contenedor general que envuelve a las fotos y al formulario de la cita */
+.seccion-reserva-fotos,
+.contenedor-principal-seccion {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Bloque de fotos izquierdo y derecho (Ancho fijo en PC, fluido en móvil) */
+.bloque-fotos-izq,
+.bloque-fotos-der {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 270px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.bloque-fotos-izq img,
+.bloque-fotos-der img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    cursor: pointer;
+}
+
+.bloque-fotos-izq img:hover,
+.bloque-fotos-der img:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+
+
+/* 2. El efecto al pasar el ratón por encima (Hover) */
+.bloque-fotos-izq img:hover,
+.bloque-fotos-der img:hover {
+    transform: scale(1.05);
+    /* La foto se agranda un poquito suavemente */
+    filter: brightness(1.1);
+    /* Le da un toque más de luz a la imagen */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Le mete una sombra elegante abajo */
+    z-index: 5;
+    /* Asegura que la foto que se agranda quede por encima de las demás */
+}
+
+/* Altura idéntica para todas las imágenes (tanto en PC como al pasar el ratón) */
+.bloque-fotos-izq img,
+.bloque-fotos-der img {
+    width: 100%;
+    height: 170px;
+    /* Aquí fijas la altura exacta que tú quieras (puedes cambiar 160 por 180 o 200 si las prefieres más altas) */
+    border-radius: 8px;
+    object-fit: cover;
+    /* Recorta la foto por el centro para que no se deforme */
+    transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* El efecto hover se mantiene impecable con la misma altura */
+.bloque-fotos-izq img:hover,
+.bloque-fotos-der img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+
+
+/* --- CONTENEDOR GENERAL --- */
+.seccion-info-galeria-estirada {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Evita cualquier desborde horizontal accidental */
+}
+
+.contenedor-info-galeria-estirada {
+    display: flex;
+    width: 100%;
+    max-width: 1500px;
+    gap: 40px;
+    /* Separación limpia entre texto e imagen */
+    align-items: center;
+}
+
+/* --- COLUMNA IZQUIERDA (TEXTO) --- */
+.bloque-texto-izq-estirado {
+    flex: 1;
+    /* Ocupa el espacio restante equilibrado */
+    min-width: 0;
+}
+
+.bloque-texto-izq-estirado h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.bloque-texto-izq-estirado p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444444;
+    margin-bottom: 15px;
+}
+
+/* --- COLUMNA DERECHA (SLIDER PANORÁMICO) --- */
+.bloque-galeria-der-estirado {
+    flex: 1.3;
+    /* Le damos un poco más de peso visual a la imagen para que se estire */
+    min-width: 0;
+    /* Clave absoluta para que no rompa el flex layout */
+}
+
+.imagen-grande-slider-estirada {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    /* Reducimos la altura para forzar el aspecto estirado horizontal */
+    overflow: hidden;
+    border-radius: 12px;
+    /* Bordes redondeados estéticos como en tu captura */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.carrusel-slides-estirado {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Desplazamiento más premium */
+}
+
+.slide-estirado {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Recorta la imagen limpiamente para que no se deforme */
+}
+
+/* --- BOTONES DE LAS FLECHAS --- */
+.carrusel-btn-estirado {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: none;
+    font-size: 20px;
+    padding: 14px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carrusel-btn-estirado:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carrusel-btn-estirado.prev {
+    left: 15px;
+}
+
+.carrusel-btn-estirado.next {
+    right: 15px;
+}
+
+/* --- ESTILOS DEL FOOTER GENERAL --- */
+.footer {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+    padding: 60px 20px 30px 20px !important;
+    font-family: 'Arial', sans-serif !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+.footer-container {
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
+    box-sizing: border-box !important;
+}
+
+/* Columnas individuales */
+.footer-col {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.footer-col h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 20px !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+}
+
+/* Columna 1: Enlaces de Menú */
+.footer-col ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px !important;
+}
+
+.footer-col ul li a {
+    color: #aaaaaa !important;
+    text-decoration: none !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    transition: color 0.3s ease !important;
+}
+
+.footer-col ul li a:hover {
+    color: #c5a880 !important;
+    /* Tono dorado/destacado */
+}
+
+/* Columna 2: Contacto y Enlaces */
+.contacto-link {
+    color: #aaaaaa !important;
+    text-decoration: none !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 15px !important;
+    line-height: 1.4 !important;
+    transition: color 0.3s ease !important;
+}
+
+.contacto-link:hover {
+    color: #ffffff !important;
+}
+
+.contacto-link i {
+    font-size: 1.1rem !important;
+    color: #c5a880 !important;
+}
+
+/* Redes Sociales */
+.social-links {
+    display: flex !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+}
+
+.social-links a {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background-color: #222222 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+    transition: transform 0.3s ease, background-color 0.3s ease !important;
+}
+
+.social-links a:hover {
+    background-color: #c5a880 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Columna 3: Horarios */
+.opening-hours p {
+    margin: 0 0 4px 0 !important;
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+}
+
+.opening-hours span {
+    display: block !important;
+    color: #aaaaaa !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 12px !important;
+}
+
+/* Columna 4: Newsletter/Boletín */
+.footer-col p {
+    color: #aaaaaa !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+}
+
+.newsletter-form {
+    display: flex !important;
+    gap: 5px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.newsletter-form input {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding: 10px 12px !important;
+    border: 1px solid #333333 !important;
+    background-color: #222222 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    font-size: 0.9rem !important;
+    box-sizing: border-box !important;
+}
+
+.newsletter-form input:focus {
+    outline: none !important;
+    border-color: #c5a880 !important;
+}
+
+.newsletter-form button {
+    background-color: #c5a880 !important;
+    color: #111111 !important;
+    border: none !important;
+    padding: 10px 15px !important;
+    font-weight: bold !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 0.85rem !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.newsletter-form button:hover {
+    background-color: #ffffff !important;
+}
+
+/* --- PARTE INFERIOR DEL FOOTER --- */
+.footer-bottom {
+    max-width: 1100px !important;
+    margin: 40px auto 0 auto !important;
+    padding-top: 25px !important;
+    border-top: 1px solid #222222 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    box-sizing: border-box !important;
+}
+
+.footer-bottom p {
+    color: #666666 !important;
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+}
+
+.footer-links {
+    display: flex !important;
+    gap: 20px !important;
+}
+
+.footer-links a {
+    color: #666666 !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    transition: color 0.3s ease !important;
+}
+
+.footer-links a:hover {
+    color: #c5a880 !important;
+}
+
+/* ==========================================
+   TOQUES FINALES: COLORES FIJOS EN REDES Y COLOR EN MENÚ
+   ========================================== */
+
+/* 1. MENÚ DEL FOOTER: Color y Movimiento al pasar el ratón (Hover) */
+.footer-col ul li a {
+    transition: transform 0.3s ease, color 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    color: #aaaaaa !important;
+    /* Color gris suave por defecto */
+}
+
+/* Al pasar el ratón por encima, se mueve y cambia a color dorado elegante */
+.footer-col ul li a:hover {
+    transform: translateX(8px) !important;
+    /* Se desliza 8px a la derecha */
+    color: #f4f805 !important;
+    /* Color dorado brillante al hacer hover */
+}
+
+
+/* 2. REDES SOCIALES: Colores auténticos fijos (sin esperar al hover) */
+.social-links a {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    /* Iconos en blanco */
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Color permanente para FACEBOOK (Azul Oficial) */
+.social-links a:has(.bxl-facebook-circle) {
+    background-color: #1877F2 !important;
+}
+
+/* Color permanente para INSTAGRAM (Degradado Oficial) */
+.social-links a:has(.bxl-instagram) {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+}
+
+/* Color permanente para WHATSAPP (Verde Oficial) */
+.social-links a:has(.bxl-whatsapp) {
+    background-color: #25D366 !important;
+}
+
+/* Color permanente para LINKEDIN (Azul Profesional) */
+.social-links a:has(.bxl-linkedin-square) {
+    background-color: #0077B5 !important;
+}
+
+/* Al pasar el ratón por encima de las redes, solo flotan un poco */
+.social-links a:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15) !important;
+}
+
+
+
+
+/* ==========================================
+   ENCABEZADO FIJO AL DESLIZAR (PC Y MÓVIL)
+   ========================================== */
+
+/* 1. Si quieres fijar TODO el bloque superior (Contacto + Menú) */
+.header-navigation,
+header,
+.header-container {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    /* <--- Asegura que quede por encima de las fotos y el contenido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    /* Una sombra sutil para darle profundidad al deslizar */
+}
+
+/* 2. Por si acaso tu contenedor principal solo se llama barra-superior o top-bar */
+.top-bar,
+.barra-superior {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+}
+
+/* ==========================================================================
+   CONEXIÓN EXACTA: CENTRAR EL SUBMENÚ DEBAJO DE SERVICIOS
+   ========================================================================== */
+
+/* 1. Obligamos al elemento de Servicios a ser el ancla de posición */
+header.main-header .navbar ul li {
+    position: relative !important;
+    /* <--- Esto es lo que le dice al submenú: ¡Alíneate conmigo! */
+}
+
+/* 2. Corregimos la posición de la caja del submenú */
+header.main-header .navbar ul.submenu {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    /* Aparece justo debajo del texto */
+
+    /* EL TRUCO PARA CENTRARLO PERFECTO: */
+    left: 50% !important;
+    transform: translateX(-50%) translateY(10px) !important;
+    /* Se centra respecto a Servicios y baja 10px */
+
+    width: 250px !important;
+    /* Ancho limpio para los textos */
+    background-color: #ffffff !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    padding: 10px 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border-left: 4px solid #e11d48 !important;
+    /* Tu línea rosa/fucsia corporativa */
+    border-radius: 4px !important;
+    z-index: 999999 !important;
+
+    /* Control de animación suave */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.servicio-bloque {
+    padding: 60px 0;
+    scroll-margin-top: 100px;
+    /* Para que el header fijo no tape el título */
+}
+
+.servicio-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Ocupa exactamente la mitad */
+.servicio-img,
+.servicio-texto {
+    flex: 1;
+    width: 50%;
+}
+
+.servicio-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #02d2f7;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #c6e707;
+}
+
+/* Efecto zoom suave al pasar el ratón por las imágenes de los servicios */
+.servicio-img {
+    overflow: hidden;
+    /* Evita que la imagen sobresalga del contenedor al crecer */
+    border-radius: 8px;
+    /* Mantiene las esquinas redondeadas */
+}
+
+.servicio-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    /* Controla la velocidad y suavidad del movimiento */
+}
+
+.servicio-img:hover img {
+    transform: scale(1.05);
+    /* Hace un zoom del 5% al pasar el cursor */
+}
+
+/* Tamaño idéntico y elegante para todas las imágenes de los servicios en PC */
+.servicio-img img {
+    width: 100%;
+    height: 420px;
+    /* Altura perfecta y amplia para ordenadores (puedes subirlo a 450px si las prefieres más grandes) */
+    object-fit: cover;
+    /* Evita que la foto se deforme o estire, recortándola de forma limpia */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   SECCIÓN: Trabaja con nosotros
+   ========================================== */
+.main-trabaja {
+    padding: 60px 15px;
+    background-color: #f3e8ff;
+    /* Fondo lila elegante y suave */
+}
+
+/* Distribución en 2 columnas: Texto estrecho (1 parte), Formulario ancho (2 partes) */
+.trabaja-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.trabaja-header {
+    text-align: left;
+    max-width: 350px;
+}
+
+.trabaja-header h1 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.trabaja-header p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.trabaja-card {
+    background: #ffffff;
+    border: 1px solid #d8b4fe;
+    /* Borde lila sutil a juego */
+    border-radius: 8px;
+    padding: 35px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.08);
+    /* Sombra suave con tono lila */
+}
+
+.trabaja-card h3 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 20px;
+    border-bottom: 2px solid #f3e8ff;
+    padding-bottom: 10px;
+}
+
+.trabaja-form .form-group {
+    margin-bottom: 20px;
+}
+
+.trabaja-form input[type="text"],
+.trabaja-form input[type="email"],
+.trabaja-form input[type="tel"],
+.trabaja-form select,
+.trabaja-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trabaja-form input:focus,
+.trabaja-form select:focus,
+.trabaja-form textarea:focus {
+    border-color: #d9232d;
+    outline: none;
+    box-shadow: 0 0 5px rgba(217, 35, 45, 0.2);
+    background-color: #fff;
+}
+
+.trabaja-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-row-double {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row-double .form-group {
+    flex: 1;
+}
+
+.btn-enviar-trabaja {
+    width: 100%;
+    padding: 14px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar-trabaja:hover {
+    background-color: #d9232d;
+}
+
+
+/* ==========================================
+   SECCIÓN: Contacto (Fondo Negro y Oro)
+   ========================================== */
+.main-contacto {
+    padding: 60px 15px;
+    background-color: #0d0d0d;
+}
+
+/* Contenedor en 2 columnas: 1 parte para el texto, 2 partes para el formulario */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* Columna izquierda más estrecha, formulario más grande */
+    gap: 40px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contacto-header {
+    text-align: left;
+    max-width: 350px;
+    /* Estrecha el texto para que ocupe menos ancho */
+}
+
+.contacto-header h1 {
+    font-size: 32px;
+    color: #d4af37;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contacto-header p {
+    color: #cccccc;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.contacto-card {
+    background: #141414;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    padding: 35px;
+    width: 100%;
+    /* Ocupa todo el espacio de su columna más ancha */
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+}
+
+.contacto-card h3 {
+    margin-bottom: 25px;
+    color: #d4af37;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 10px;
+}
+
+.contacto-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contacto-form input[type="text"],
+.contacto-form input[type="email"],
+.contacto-form input[type="tel"],
+.contacto-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5.px solid #d4af37;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.contacto-form input::placeholder,
+.contacto-form textarea::placeholder {
+    color: #b3973b;
+}
+
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+    border-color: #f3e5ab;
+    outline: none;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    background-color: #222222;
+}
+
+.contacto-form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.form-row-double {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row-double .form-group {
+    flex: 1;
+}
+
+.btn-enviar-contacto {
+    width: 100%;
+    padding: 14px;
+    background-color: #d4af37;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-enviar-contacto:hover {
+    background-color: #f3e5ab;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   SECCIÓN: Tienda Online (Fondo Lila + Hover Aqua)
+   ========================================== */
+.main-tienda {
+    padding: 60px 15px;
+    background-color: #f3e8ff;
+    /* Fondo lila principal */
+}
+
+.tienda-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tienda-header h1 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.tienda-header p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Grilla de productos en 4 columnas */
+.tienda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Tarjeta base (Blanca) */
+.producto-card {
+    background: #ffffff;
+    border: 2px solid #d8b4fe;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.08);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+/* ==========================================
+   EFECTO HOVER: De Blanco a Color Aqua
+   ========================================== */
+.producto-card:hover {
+    background-color: #e0f7fa;
+    /* Pasa de blanco a un tono Aqua muy suave y fresco */
+    border-color: #00bcd4;
+    /* Borde Aqua / Turquesa vibrante */
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(0, 188, 212, 0.25);
+    /* Sombra resplandeciente aqua */
+}
+
+.producto-card:hover .producto-img {
+    color: #00838f;
+    /* El icono pasa a un tono aqua oscuro */
+    transform: scale(1.1);
+}
+
+.producto-card:hover .btn-anadir-carrito {
+    background-color: #00838f;
+    /* El botón cambia a tono aqua oscuro al hacer hover */
+}
+
+/* Elementos internos de la tarjeta */
+.producto-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #111;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.producto-img {
+    font-size: 50px;
+    color: #8b5cf6;
+    margin: 20px 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.producto-card h3 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.producto-desc {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.producto-precio {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.btn-anadir-carrito {
+    width: 100%;
+    padding: 12px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* ==========================================
+   SECCIÓN: Blog iCars (Fondo Lila + Hover Aqua)
+   ========================================== */
+.main-blog {
+    padding: 60px 15px;
+    background-color: #f3e8ff;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-header h1 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.blog-header p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Grilla de artículos en 3 columnas */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Tarjeta base del blog */
+.blog-card {
+    background: #ffffff;
+    border: 2px solid #d8b4fe;
+    border-radius: 8px;
+    padding: 30px 25px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.08);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+/* Efecto Hover al pasar el ratón (de blanco a aqua) */
+.blog-card:hover {
+    background-color: #e0f7fa;
+    border-color: #00bcd4;
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(0, 188, 212, 0.25);
+}
+
+.blog-card:hover .blog-icon {
+    color: #00838f;
+    transform: scale(1.1);
+}
+
+.blog-card:hover .btn-leer-blog {
+    background-color: #00838f;
+    color: #ffffff;
+}
+
+.blog-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #111;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.blog-icon {
+    font-size: 45px;
+    color: #8b5cf6;
+    margin: 15px 0 20px 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.blog-card h3 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.blog-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Botón con estilo vivo */
+.btn-leer-blog {
+    width: 100%;
+    padding: 12px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-leer-blog i {
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .btn-leer-blog i {
+    transform: translateX(5px);
+    /* Desplaza la flechita a la derecha al pasar el ratón */
+}
+
+/* ==========================================
+   ESTILO PÁGINAS LEGALES / PRIVACIDAD (DARK MODE CIAN)
+   ========================================== */
+
+body {
+    background-color: #0d0d0d !important;
+    color: #cccccc !important;
+    font-family: 'Segoe UI', Roboto, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.legal-container {
+    max-width: 800px !important;
+    margin: 60px auto !important;
+    padding: 40px !important;
+    background-color: #141414 !important;
+    border: 1px solid #00bcd4 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 25px rgba(0, 188, 212, 0.15) !important;
+    line-height: 1.7 !important;
+}
+
+.legal-container h1 {
+    color: #00bcd4 !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.3) !important;
+}
+
+.legal-container h2 {
+    color: #00bcd4 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-top: 30px !important;
+    margin-bottom: 12px !important;
+}
+
+.legal-container p {
+    color: #cccccc !important;
+    font-size: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.legal-container strong {
+    color: #ffffff !important;
+}
+
+.btn-volver {
+    display: inline-block !important;
+    margin-top: 30px !important;
+    color: #00bcd4 !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+}
+
+.btn-volver:hover {
+    color: #e0f7fa !important;
+}
+
+/* ==========================================
+   ESTILO PÁGINAS LEGALES / COOKIES (DARK MODE CIAN)
+   ========================================== */
+
+body {
+    background-color: #0d0d0d !important;
+    color: #cccccc !important;
+    font-family: 'Segoe UI', Roboto, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.legal-container {
+    max-width: 800px !important;
+    margin: 60px auto !important;
+    padding: 40px !important;
+    background-color: #141414 !important;
+    border: 1px solid #00bcd4 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 25px rgba(0, 188, 212, 0.15) !important;
+    line-height: 1.7 !important;
+}
+
+.legal-container h1 {
+    color: #00bcd4 !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.3) !important;
+}
+
+.legal-container h2 {
+    color: #00bcd4 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-top: 30px !important;
+    margin-bottom: 12px !important;
+}
+
+.legal-container p {
+    color: #cccccc !important;
+    font-size: 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.legal-container strong {
+    color: #ffffff !important;
+}
+
+.btn-volver {
+    display: inline-block !important;
+    margin-top: 30px !important;
+    color: #0c0c0c !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    transition: color 0.3s ease, transform 0.2s ease !important;
+}
+
+.btn-volver:hover {
+    color: #e0f7fa !important;
+    transform: translateX(-5px) !important;
+}
+
+/* ==========================================
+   BLINDAJE DE FONDO BLANCO PARA SERVICIOS
+   ========================================== */
+body,
+.servicios-container,
+.main-content {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* ==========================================
+   PATRÓN DE COLORES ALTERNADOS (1-2-1-2) PARA LOS 16 SERVICIOS
+   ========================================== */
+
+/* Fondo 1 (Ejemplo: Blanco puro o tono base) */
+.servicio-bloque:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Fondo 2 (Gris un poco más marcado para que se note bien el contraste) */
+.servicio-bloque:nth-child(even) {
+    background-color: #eaeef2;
+}
+
+/* ==========================================
+   ESTRUCTURA Y ESPACIADO GENERAL DE LOS BLOQUES
+   ========================================== */
+.servicio-bloque {
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+.servicio-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio-texto {
+    flex: 1;
+}
+
+.servicio-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #222222;
+}
+
+.servicio-texto p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.servicio-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.servicio-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   BOTONES DE ACCIÓN (PEDIR CITA Y VOLVER)
+   ========================================== */
+.btn-reserva {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--naranja, #ff6600);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-reserva:hover {
+    background-color: #e55b00;
+}
+
+.btn-volver {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    /* Amarillo vivo pedido */
+    color: #333333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #e6b800;
+    color: #000000;
+}
+
+/* ==========================================
+   BOTÓN DE CONSULTAR DISPONIBILIDAD EN VERDE WHATSAPP
+   ========================================== */
+.btn-anadir-carrito {
+    background-color: #25D366 !important;
+    /* El verde oficial de WhatsApp */
+    color: #ffffff !important;
+    /* Texto en blanco para que resalte bien */
+    border: none !important;
+    font-weight: 600 !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+/* Efecto al pasar el ratón por encima (un verdecito un poco más oscuro) */
+.btn-anadir-carrito:hover {
+    background-color: #20ba5a !important;
+    transform: translateY(-2px) !important;
+}
